@@ -4,14 +4,14 @@ import { FaLinkedin, FaGithub, FaTwitter, FaGlobe } from 'react-icons/fa';
 
 import jeremiahImg from '../assets/images/teamProfile/jeremiah.png';
 import wenardImg from '../assets/images/teamProfile/wenard.png';
-import johnImg from '../assets/images/teamProfile/john.webp';
+import ChromaGrid from '../components/ui/ChromaGrid';
 
 const teamMembers = [
   {
     id: 1,
     name: 'Jeremiah',
     nickname: 'Pantaras',
-    position: 'Founder · Lead Project Manager · AI Engineer · Senior Software Engineer',
+    position: 'Founder · Chief Executive Officer · AI Engineer · Senior Software Engineer',
     gradient: 'from-purple-500 via-pink-400 to-yellow-300',
     image: jeremiahImg,
     handle: '@jeremiahpantaras',
@@ -19,22 +19,12 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: 'John Michael',
-    nickname: 'Pantaras',
-    position: 'Co-founder · Company Advisor · Business Strategist',
-    gradient: 'from-yellow-400 via-orange-400 to-red-500',
-    image: johnImg,
-    handle: '@Archael2025',
-    portfolio: { url: '#' }
-  },
-  {
-    id: 3,
     name: 'Wenard Roy',
     nickname: 'Barrera',
-    position: 'Co-founder · UI/UX Designer · Front End Developer',
+    position: 'Co-founder · UI/UX Designer · Front End Developer · Full Stack Web Developer · Mobile Developer',
     gradient: 'from-pink-500 via-red-400 to-yellow-300',
     image: wenardImg,
-    handle: '@Royroy2025',
+    handle: '@wenardbarrera',
     portfolio: { url: 'https://kr1stik.cosedevs.com/' }
   }
 ];
@@ -112,6 +102,56 @@ export default function AboutPage() {
     hidden: { opacity: 0, y: 24 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
   };
+
+  const chromaTeamItems = teamMembers.map((member) => ({
+    image: member.image,
+    nickname: member.nickname,
+    title: member.name,
+    subtitle: member.position,
+    handle: member.handle,
+    accent: member.id === 1 ? '#a855f7' : '#38bdf8',
+    imageClassName: 'absolute inset-0 block h-full w-full select-none object-cover object-top [-webkit-user-drag:none]',
+    footer: (
+      <div className="flex items-center justify-between pt-1">
+        <div className="flex gap-2">
+          {member.portfolio?.url && member.portfolio.url !== '#' ? (
+            <a
+              href={member.portfolio.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl flex items-center justify-center transition-all duration-200"
+              aria-label={`${member.name}'s portfolio`}
+            >
+              <FaGlobe className="text-zinc-400 text-xs" />
+            </a>
+          ) : (
+            <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
+              <FaGlobe className="text-zinc-400 text-xs" />
+            </div>
+          )}
+          <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
+            <FaGithub className="text-zinc-400 text-xs" />
+          </div>
+          <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
+            <FaLinkedin className="text-zinc-400 text-xs" />
+          </div>
+          <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
+            <FaTwitter className="text-zinc-400 text-xs" />
+          </div>
+        </div>
+        {member.portfolio?.url && member.portfolio.url !== '#' && (
+          <a
+            href={member.portfolio.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-zinc-400 hover:text-white transition-colors"
+          >
+            Portfolio &rarr;
+          </a>
+        )}
+      </div>
+    )
+  }));
 
   return (
     <section className="relative min-h-screen bg-black py-24 pt-40 px-6 lg:px-12 overflow-hidden">
@@ -221,66 +261,26 @@ export default function AboutPage() {
           <p className="text-zinc-500 uppercase tracking-[0.2em] text-xs mb-3">The People</p>
           <h2 className="text-2xl md:text-3xl font-medium text-white tracking-tight mb-10">Our Team</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {teamMembers.map((member) => (
-              <div
-                key={member.id}
-                className="relative bg-zinc-950 border border-white/5 rounded-3xl overflow-hidden min-h-[420px] hover:-translate-y-1 hover:border-white/10 transition-all duration-300 ease-out flex flex-col"
-              >
-                <div className="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-white/3 to-transparent" />
-
-                <div className="relative z-10 p-6 h-full flex flex-col flex-1">
-                  {/* Profile image */}
-                  <div className="w-full h-48 flex items-end justify-center mb-5 overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={`${member.name} ${member.nickname}`}
-                      className="h-full w-auto object-contain"
-                    />
-                  </div>
-
-                  {/* Info */}
-                  <div className="flex-1 flex flex-col">
-                    <h3 className="text-white text-lg font-medium leading-tight">
-                      {member.nickname},
-                    </h3>
-                    <p className="text-zinc-400 text-sm">{member.name}</p>
-                    <p className="text-zinc-500 text-xs mt-2 leading-relaxed">
-                      {member.position}
-                    </p>
-                    <p className="text-zinc-500 text-xs mt-auto pt-4 mb-4">{member.handle}</p>
-
-                    {/* Social icons */}
-                    <div className="flex gap-2">
-                      {member.portfolio?.url && member.portfolio.url !== '#' ? (
-                        <a
-                          href={member.portfolio.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-9 h-9 bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl flex items-center justify-center transition-all duration-200"
-                          aria-label={`${member.name}'s portfolio`}
-                        >
-                          <FaGlobe className="text-zinc-400 text-xs" />
-                        </a>
-                      ) : (
-                        <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-                          <FaGlobe className="text-zinc-400 text-xs" />
-                        </div>
-                      )}
-                      <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-                        <FaGithub className="text-zinc-400 text-xs" />
-                      </div>
-                      <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-                        <FaLinkedin className="text-zinc-400 text-xs" />
-                      </div>
-                      <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-                        <FaTwitter className="text-zinc-400 text-xs" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <ChromaGrid
+              items={chromaTeamItems}
+              columns={2}
+              radius={280}
+              reveal="spotlight"
+              minCardWidth={280}
+              gap={24}
+              aspectRatio="1 / 1"
+              cardRadius={24}
+              showInfo
+              frame={false}
+              softness={0.6}
+              damping={0.45}
+              fadeOut={0.6}
+              grayscale={1}
+              dim={0.12}
+              glow={0.5}
+              borderGlow={1}
+            />
           </div>
         </motion.div>
 
