@@ -1,58 +1,41 @@
-# 🚀 COS Devs – Creative Solutions
+# 🚀 Beacon Development Studio
 
-Welcome to **COS Devs** – a modern, single-page web experience built with React, Vite, and TailwindCSS.  
-We craft digital solutions that transform ideas into reality, blending creativity, technology, and user-centric design.
+> **Turning your vision into digital reality.**
+
+Welcome to **Beacon Development Studio** – a modern, high-performance portfolio website built with React, Vite, and TailwindCSS.  
+We architect and engineer bespoke digital solutions that transform ambitious ideas into reality, blending technology, craftsmanship, and user-centric design.
 
 ---
 
-## ✨ Live Demo
+## 🛠️ Core Services
 
-> **Experience the future of development:**  
-> Modern, intuitive, and interactive UI/UX.  
-> Responsive, fast, and visually stunning._
+- **Software Development:** Bespoke, scalable software solutions engineered for performance and enterprise growth.
+- **Web Development:** Modern, high-performance web applications built with cutting-edge frameworks.
+- **Mobile App Development:** Intuitive native and cross-platform mobile apps for iOS and Android.
+- **Business Automation:** Process automation, systems integration, and intelligent workflows to accelerate business efficiency.
 
 ---
 
 ## 🖌️ Features
 
-- **Floating Navbar:**  
-  Sleek, animated navigation with smooth scroll and active section highlighting.
-
-- **Hero Section:**  
-  Eye-catching gradients, animated backgrounds, and engaging call-to-action.
-
-- **Services:**  
-  Interactive cards showcasing our expertise, with micro-interactions and mobile-ready layouts.
-
-- **About:**  
-  Our mission, vision, and streamlined process, presented with elegant animations.
-
-- **Work:**  
-  A showcase of our proudest projects, featuring animated cards and tech tags.
-
-- **Contact:**  
-  Beautiful, accessible form and info cards, ready for collaboration.
-
-- **Footer:**  
-  Professional, modern, and interactive, with a "Back to Top" button and animated brand.
+- **Floating Navbar:** Sleek navigation with smooth scroll and active section highlighting.
+- **Hero Section:** Full-bleed 3D canvas, glowing sphere, animated metrics, and engaging call-to-actions.
+- **Services Bento Grid:** Interactive cards showcasing our core expertise with micro-interactions.
+- **About Section:** Mission, vision, and streamlined process presented with elegant animations.
+- **Work Showcase:** Dual-row infinite scrolling marquee and detailed project tech stack breakdown.
+- **Contact:** Accessible macOS-style form and direct studio contact information.
+- **Footer:** Modern, brand-aligned footer with navigation, social connections, and copyright.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- [React](https://react.dev/) – UI Library
-- [Vite](https://vitejs.dev/) – Lightning-fast build tool
-- [TailwindCSS](https://tailwindcss.com/) – Utility-first CSS
+- [React 19](https://react.dev/) – UI Library
+- [Vite 7](https://vitejs.dev/) – Lightning-fast build tool
+- [TailwindCSS v4](https://tailwindcss.com/) – Utility-first CSS engine
+- [Three.js & R3F](https://threejs.org/) – 3D ambient canvas
 - [Framer Motion](https://www.framer.com/motion/) – Animations & micro-interactions
-- [Lucide Icons](https://lucide.dev/) – Beautiful SVG icons
-
----
-
-## 📱 Responsive & Accessible
-
-- Fully mobile-ready and accessible.
-- Keyboard navigation and focus-visible styles.
-- Smooth transitions and delightful micro-interactions.
+- [Lucide Icons](https://lucide.dev/) – SVG icons
 
 ---
 
@@ -64,6 +47,9 @@ npm install
 
 # Start the development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
 ---
@@ -71,15 +57,9 @@ npm run dev
 ## 🤝 Contact
 
 Ready to build something amazing?  
-Reach out via the Contact section or email us at **contact@cosdevs.com**.
+Reach out via the Contact section or email us at **beacondevstudio@gmail.com**.
 
 ---
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Crafted with passion by COS Devs.**  
-_Transforming ideas into digital reality._
+**Crafted with passion by Beacon Development Studio.**  
+*Turning your vision into digital reality.*

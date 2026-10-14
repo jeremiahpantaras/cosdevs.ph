@@ -1,10 +1,7 @@
-import { motion } from 'framer-motion';
-import { 
-  SiReact, SiTailwindcss, SiPython, SiDjango, SiPostgresql, SiFirebase, SiUnity,
-  SiNextdotjs, SiTypescript, SiSupabase, SiStripe, SiVite, SiNetlify, SiBootstrap, SiNodedotjs, SiFramer
-} from 'react-icons/si';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import MoltenMetal from '../components/ui/MoltenMetal';
 import project1 from '../assets/images/project1.webp';
 import project2 from '../assets/images/project2.webp';
 import project3 from '../assets/images/project3.webp';
@@ -13,162 +10,102 @@ import avendroLogo from '../assets/images/avendrologo.webp';
 import posLogo from '../assets/images/poslogo.webp';
 import sentinelsLogo from '../assets/images/sentinelslogo.webp';
 import tabangLogo from '../assets/images/tabanglogo.webp';
-import aetherLogo from '../assets/images/AetherLogo.webp';
-import aetherWeb from '../assets/images/AetherWeb.webp';
-import luxuriagaLogo from '../assets/images/LuxuriagaLogo.webp';
-import luxuriagaWeb from '../assets/images/LuxuriagaWeb.webp';
-import totalEdgeLogo from '../assets/images/totaledge.webp';
-import totalEdgeWeb from '../assets/images/totalEdgeProject.webp';
-import talaWeb from '../assets/images/TalaWeb.webp';
+import recivoImg from '../assets/images/Recivo.png';
+import smsGatewayImg from '../assets/images/SMS Gateway.png';
+import ePunoImg from '../assets/images/ePuno.png';
+import incognitoImg from '../assets/images/incognito.png';
 
 const projects = [
   {
+    title: 'Recivo',
+    description: 'A modern receipt generation platform designed specifically for online sellers and business owners. Create, manage, and share professional receipts in seconds—without the hassle of manual paperwork.',
+    tags: ['Receipt Generation', 'E-Commerce Tool', 'Business Automation'],
+    logo: recivoImg,
+    scrollImage: recivoImg,
+    isScreenshot: true,
+    link: 'https://recivo.cosedevs.com/',
+  },
+  {
+    title: 'SMS Gateway',
+    description: 'An Android mobile application (.APK) that transforms your smartphone into an automated SMS gateway. Harness existing SIM promos and cellular allowances to power cost-effective business SMS communications.',
+    tags: ['Mobile Application', 'SMS Automation', 'Business Communication'],
+    logo: smsGatewayImg,
+    scrollImage: smsGatewayImg,
+    isScreenshot: true,
+    link: '#',
+  },
+  {
+    title: 'ePuno',
+    description: 'More than just a personal budget tracker — ePuno is the first entry in a conceptual, collaborative Global Directory of open-source financial empowerment tools, shaping personal finance navigation.',
+    tags: ['FinTech', 'Budget Tracking', 'Financial Empowerment'],
+    logo: ePunoImg,
+    scrollImage: ePunoImg,
+    isScreenshot: true,
+    link: 'https://epuno.cosedevs.com/',
+  },
+  {
+    title: 'Incognito',
+    description: 'A modern web application allowing users to send and receive anonymous messages through unique, shareable links. Designed for constructive feedback, honest suggestions, and safe civic participation without fear or bias.',
+    tags: ['Anonymous Messaging', 'Feedback Platform', 'Civic Engagement'],
+    logo: incognitoImg,
+    scrollImage: incognitoImg,
+    isScreenshot: true,
+    link: 'https://incognito.cosedevs.com/',
+  },
+  {
     title: 'Satoru',
     description: 'A web application designed to intelligently summarize and extract key information from uploaded documents, providing users with quick, distilled insights.',
-    tags: ['React', 'REST Framework', 'GSAP', 'Python', 'Django', 'PostgreSQL', 'Tailwind CSS'],
+    tags: ['Document Intelligence', 'Smart Summarization', 'Knowledge Management'],
     logo: satoruLogo,
     scrollImage: project1,
     link: 'https://satoru-chi.vercel.app/',
-    techStack: [
-      { icon: SiReact, color: 'text-cyan-400' },
-      { icon: SiPython, color: 'text-yellow-300' },
-      { icon: SiPostgresql, color: 'text-blue-400' },
-      { icon: SiTailwindcss, color: 'text-cyan-300' },
-    ],
   },
   {
     title: 'Avendro',
-    description: 'A comprehensive lending management system built with Django, designed to streamline loan operations and financial management for lending institutions.',
-    tags: ['Python', 'Django', 'PostgreSQL', 'Tailwind CSS'],
+    description: 'A comprehensive lending management system designed to streamline loan operations and financial management for lending institutions.',
+    tags: ['Lending Management', 'Loan Operations', 'Financial Systems'],
     logo: avendroLogo,
     scrollImage: project2,
     link: 'https://avendrobcd.onrender.com/',
-    techStack: [
-      { icon: SiPython, color: 'text-yellow-300' },
-      { icon: SiDjango, color: 'text-green-600' },
-      { icon: SiPostgresql, color: 'text-blue-400' },
-      { icon: SiTailwindcss, color: 'text-cyan-300' },
-    ],
   },
   {
     title: 'Point of Sale System',
     description: 'A point of sale (POS) system for retail businesses, featuring inventory management, sales tracking, and customer management functionalities.',
-    tags: ['Python', 'Django', 'React', 'PostgreSQL'],
+    tags: ['Retail POS', 'Inventory Management', 'Sales Tracking'],
     logo: posLogo,
     scrollImage: project3,
     link: 'https://example.com/pos',
-    techStack: [
-      { icon: SiPython, color: 'text-yellow-300' },
-      { icon: SiDjango, color: 'text-green-600' },
-      { icon: SiReact, color: 'text-cyan-400' },
-      { icon: SiPostgresql, color: 'text-blue-400' },
-    ],
   },
   {
     title: 'Sentinels - Gamified Cybersecurity',
     description: 'An engaging mobile game with multiplayer functionality, leaderboards, and in-app purchases focused on cybersecurity education.',
-    tags: ['Unity', 'C#', 'Firebase', 'Python', 'Django', 'PostgreSQL'],
+    tags: ['Cybersecurity Education', 'Gamified Learning', 'Mobile Game'],
     logo: sentinelsLogo,
     scrollImage: sentinelsLogo,
     link: 'https://drive.google.com/file/d/1dB0u3wjIOWzKIGJtJPzDSgzceLOgFC2-/view',
-    techStack: [
-      { icon: SiUnity, color: 'text-white' },
-      { icon: SiFirebase, color: 'text-yellow-400' },
-      { icon: SiPython, color: 'text-yellow-300' },
-      { icon: SiPostgresql, color: 'text-blue-400' },
-    ],
   },
   {
     title: 'Student Management System',
     description: 'A comprehensive dashboard for educational institutions with data visualization, analytics, and reporting tools for student management.',
-    tags: ['Python', 'Django', 'Firebase', 'PostgreSQL'],
+    tags: ['Academic Analytics', 'Institutional Dashboard', 'Student Management'],
     logo: sentinelsLogo,
     scrollImage: satoruLogo,
     link: 'https://sentinelsadmin.onrender.com/',
-    techStack: [
-      { icon: SiPython, color: 'text-yellow-300' },
-      { icon: SiDjango, color: 'text-green-600' },
-      { icon: SiFirebase, color: 'text-yellow-400' },
-      { icon: SiPostgresql, color: 'text-blue-400' },
-    ],
   },
   {
     title: 'Tabang Negros',
     description: 'A modern, real-time emergency help request system designed for Negros Island, Philippines. This full-stack web application allows users to quickly send emergency requests with their exact location to responders.',
-    tags: ['React', 'Leaflet', 'Python', 'Django', 'PostgreSQL', 'Cloudinary'],
+    tags: ['Emergency Response', 'Real-Time Dispatch', 'Public Safety'],
     logo: tabangLogo,
     scrollImage: tabangLogo,
     link: 'https://tabangnegros-installation.vercel.app/',
-    techStack: [
-      { icon: SiReact, color: 'text-cyan-400' },
-      { icon: SiPython, color: 'text-yellow-300' },
-      { icon: SiDjango, color: 'text-green-600' },
-      { icon: SiPostgresql, color: 'text-blue-400' },
-    ],
-  },
-  {
-    title: 'Aether-atelier',
-    description: 'A sophisticated e-commerce platform and atelier management system built with Next.js, featuring seamless Stripe integration and Supabase backend.',
-    tags: ['Next.js', 'TypeScript', 'GSAP', 'Supabase', 'Stripe'],
-    logo: aetherLogo,
-    scrollImage: aetherWeb,
-    needsWhiteBg: true,
-    link: 'https://aether-atelier.vercel.app/',
-    techStack: [
-      { icon: SiNextdotjs, color: 'text-white' },
-      { icon: SiTypescript, color: 'text-blue-500' },
-      { icon: SiSupabase, color: 'text-emerald-500' },
-      { icon: SiStripe, color: 'text-indigo-400' },
-    ],
-  },
-  {
-    title: 'Luxuriaga',
-    description: 'A high-end luxury real estate and lifestyle platform built with React and Vite, utilizing Supabase for a robust backend and dynamic content management.',
-    tags: ['React', 'TypeScript', 'Vite', 'Supabase', 'Netlify'],
-    logo: luxuriagaLogo,
-    scrollImage: luxuriagaWeb,
-    link: 'https://luxuriaga-hotel.netlify.app/',
-    techStack: [
-      { icon: SiReact, color: 'text-cyan-400' },
-      { icon: SiVite, color: 'text-yellow-400' },
-      { icon: SiSupabase, color: 'text-emerald-500' },
-      { icon: SiNetlify, color: 'text-cyan-500' },
-    ],
-  },
-  {
-    title: 'TotalEdge',
-    description: 'A modern enterprise-grade application built with Next.js 14, featuring advanced animations with Framer Motion and GSAP, integrated with Stripe and Google APIs.',
-    tags: ['Next.js', 'Framer Motion', 'GSAP', 'Stripe', 'Supabase'],
-    logo: totalEdgeLogo,
-    scrollImage: totalEdgeWeb,
-    link: 'https://www.totaledge.au/coaching',
-    techStack: [
-      { icon: SiNextdotjs, color: 'text-white' },
-      { icon: SiFramer, color: 'text-pink-500' },
-      { icon: SiSupabase, color: 'text-emerald-500' },
-      { icon: SiStripe, color: 'text-indigo-400' },
-    ],
-  },
-  {
-    title: 'TALA',
-    description: 'A cross-platform application utilizing Bootstrap and Node.js on the frontend, with a powerful Python/Django and Firebase backend for real-time data handling.',
-    tags: ['Bootstrap', 'Node.js', 'Firebase', 'Django'],
-    logo: talaWeb,
-    scrollImage: talaWeb,
-    link: 'https://tala.cosedevs.com/',
-    techStack: [
-      { icon: SiBootstrap, color: 'text-purple-500' },
-      { icon: SiNodedotjs, color: 'text-green-500' },
-      { icon: SiFirebase, color: 'text-yellow-400' },
-      { icon: SiDjango, color: 'text-green-600' },
-    ],
   },
 ];
 
 const row1 = projects.slice(0, Math.ceil(projects.length / 2));
 const row2 = projects.slice(Math.ceil(projects.length / 2));
-const loopRow1 = [...row1, ...row1];
-const loopRow2 = [...row2, ...row2];
+const loopRow1 = [...row1, ...row1, ...row1];
+const loopRow2 = [...row2, ...row2, ...row2];
 
 function ScrollCard({ project }) {
   return (
@@ -198,13 +135,41 @@ function ScrollCard({ project }) {
 
 export default function WorkPage() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen relative overflow-hidden">
+      {/* ── Molten Metal WebGL Background ── */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <MoltenMetal
+          color1="#4338ca"
+          color2="#0891b2"
+          color3="#c084fc"
+          backgroundColor="#000000"
+          speed={0.25}
+          scale={3.2}
+          detail={3}
+          glow={1.5}
+          coreSize={0.12}
+          swirl={1.1}
+          fold={-0.22}
+          blackPoint={0.035}
+          brightness={1.15}
+          colorMode="molten"
+          grain={true}
+          grainIntensity={0.035}
+          mouseInteraction={true}
+          mouseStrength={0.35}
+          opacity={0.55}
+          className="w-full h-full"
+        />
+        {/* Dark-theme atmospheric vignette to preserve deep black tones & razor-sharp text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/70 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,black_75%)] pointer-events-none" />
+      </div>
+
       {/* ── Scrolling Showcase ── */}
-      <section className="relative overflow-hidden pt-32 pb-20">
-        {/* Vignette */}
+      <section className="relative overflow-hidden pt-32 pb-20 z-10">
+        {/* Soft edge fade for infinite scroll carousel */}
         <div className="pointer-events-none absolute inset-0 z-10">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,black_0%,transparent_20%,transparent_80%,black_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,black_80%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,black_0%,transparent_15%,transparent_85%,black_100%)]" />
         </div>
 
         {/* Header */}
@@ -261,99 +226,114 @@ export default function WorkPage() {
       </section>
 
       {/* ── Detailed Project Grid ── */}
-      <section className="px-4 md:px-6 pb-24 relative z-20">
-        <div className="max-w-7xl mx-auto">
+      <section className="pb-24 relative z-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-zinc-500 uppercase text-xs tracking-widest text-center mb-12"
+            className="text-zinc-500 uppercase text-xs tracking-widest text-center mb-16"
           >
             All Projects
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-                className="group relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 transition-all duration-300"
-              >
-                {/* Logo banner */}
-                <div className="w-full h-52 relative overflow-hidden flex items-center justify-center bg-zinc-900">
-                  <div className="absolute inset-0 bg-black/40" />
-                  {project.title === 'TALA' ? (
-                    <div className="relative z-10 flex items-center justify-center w-full h-full bg-zinc-900">
-                      <span className="text-4xl font-bold tracking-tighter text-white">TALA</span>
-                    </div>
-                  ) : (
-                    <div className={`${project.needsWhiteBg ? 'bg-white p-4 rounded-xl' : ''} relative z-10 flex items-center justify-center`}>
+        </div>
+
+        {/* Full-width project list with edge-to-edge gray top & bottom lines on every project */}
+        <div className="w-full flex flex-col border-t border-b border-zinc-800 divide-y divide-zinc-800">
+          {projects.map((project, index) => (
+            <div key={index} className="w-full py-10 md:py-16">
+              <div className="max-w-5xl mx-auto px-4 md:px-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: 0.05 }}
+                  className="group relative flex flex-col md:flex-row items-stretch rounded-3xl overflow-hidden transition-all duration-500"
+                >
+                  {/* Fading container background — dissolves softly horizontally so no rounded square is visible */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/[0.035] via-white/[0.01] to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Thumbnail on the left with edge fade */}
+                  <div className="w-full md:w-[400px] lg:w-[440px] h-60 md:h-auto min-h-[220px] md:min-h-[280px] relative overflow-hidden flex items-center justify-center shrink-0">
+                    {/* Soft fading overlays so the image dissolves seamlessly into the container */}
+                    <div className="hidden md:block absolute inset-y-0 right-0 w-24 bg-gradient-to-r from-transparent to-black/40 z-10 pointer-events-none" />
+                    <div className="md:hidden block absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-transparent to-black/40 z-10 pointer-events-none" />
+                    <div className="absolute inset-0 bg-black/10 z-1 pointer-events-none" />
+
+                    {project.isScreenshot ? (
                       <img
-                        src={project.logo}
-                        alt={`${project.title} logo`}
-                        className="w-28 h-28 object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                        src={project.scrollImage || project.logo}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                       />
+                    ) : (
+                      <div className={`${project.needsWhiteBg ? 'bg-white p-6 rounded-2xl' : ''} relative z-10 flex items-center justify-center`}>
+                        <img
+                          src={project.logo}
+                          alt={`${project.title} logo`}
+                          className="w-28 h-28 md:w-36 md:h-36 object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Description and details on the right */}
+                  <div className="p-6 md:p-8 flex flex-col justify-between flex-1 relative z-10">
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-zinc-200 transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-zinc-400 mb-6 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-1.5 mb-6">
+                        {project.tags.map((tag, i) => (
+                          <span
+                            key={i}
+                            className="text-xs text-zinc-300 bg-white/5 px-2.5 py-1 rounded-full border border-white/10"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  )}
-                </div>
 
-                {/* Info */}
-                <div className="p-5">
-                  <h3 className="text-base md:text-lg font-semibold text-white mb-2 group-hover:text-zinc-200 transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs text-zinc-500 mb-4 leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack Icons */}
-                  <div className="flex gap-2 mb-4">
-                    {project.techStack.map((tech, i) => {
-                      const Icon = tech.icon;
-                      return (
-                        <div key={i} className="bg-white/5 p-2 rounded-lg border border-white/10">
-                          <Icon className={`text-base ${tech.color}`} />
-                        </div>
-                      );
-                    })}
+                    {/* Link */}
+                    <div className="pt-4 border-t border-white/5 flex items-center">
+                      {project.link && project.link !== '#' ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors duration-300 group/btn"
+                        >
+                          <span>Visit Website</span>
+                          <FiExternalLink className="text-xs group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" />
+                        </a>
+                      ) : (
+                        <span className="inline-flex items-center gap-2 text-sm text-zinc-400 cursor-default">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                          <span>Mobile Application (.APK)</span>
+                        </span>
+                      )}
+                    </div>
                   </div>
+                </motion.div>
+              </div>
+            </div>
+          ))}
+        </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {project.tags.slice(0, 3).map((tag, i) => (
-                      <span
-                        key={i}
-                        className="text-xs text-zinc-400 bg-white/5 px-2.5 py-1 rounded-full border border-white/10"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Link */}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors duration-300 group/btn"
-                  >
-                    <span>Visit Website</span>
-                    <FiExternalLink className="text-xs group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" />
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA */}
+        {/* CTA */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mt-20 text-center"
+            className="mt-24 text-center"
           >
             <h2 className="text-white text-2xl md:text-3xl font-medium tracking-tight mb-3">
               Ready to build something amazing?

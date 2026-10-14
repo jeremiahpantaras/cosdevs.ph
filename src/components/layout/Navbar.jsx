@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
+const NAV_LINKS = [
+  { name: 'Home', id: 'home', path: '/' },
+  { name: 'Services', id: 'services', path: '/services' },
+  { name: 'About', id: 'about', path: '/about' },
+  { name: 'Work', id: 'work', path: '/work' },
+  { name: 'Contact', id: 'contact', path: '/contact' },
+]
+
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home')
   const navigate = useNavigate()
   const location = useLocation()
-
-  const navLinks = [
-    { name: 'Home', id: 'home', path: '/' },
-    { name: 'Services', id: 'services', path: '/services' },
-    { name: 'About', id: 'about', path: '/about' },
-    { name: 'Work', id: 'work', path: '/work' },
-    { name: 'Contact', id: 'contact', path: '/contact' },
-  ]
 
   const scrollToSection = (link) => {
     if (link.id === 'home') {
@@ -53,7 +53,7 @@ export default function Navbar() {
     if (location.pathname === '/') {
       const handleScroll = () => {
         const scrollPosition = window.scrollY + 150
-        for (const link of navLinks) {
+        for (const link of NAV_LINKS) {
           const element = document.getElementById(link.id)
           if (element) {
             const { offsetTop, offsetHeight } = element
@@ -68,7 +68,7 @@ export default function Navbar() {
       handleScroll()
       return () => window.removeEventListener('scroll', handleScroll)
     } else {
-      const currentLink = navLinks.find(link => link.path === location.pathname)
+      const currentLink = NAV_LINKS.find(link => link.path === location.pathname)
       if (currentLink) setActiveSection(currentLink.id)
     }
   }, [location.pathname])
@@ -76,7 +76,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-16 right-16 z-50 max-sm:top-12 max-sm:right-4">
       <ul className="flex flex-col items-end gap-2 text-right max-sm:gap-0">
-        {navLinks.map((link) => {
+        {NAV_LINKS.map((link) => {
           const isActive = activeSection === link.id
 
           return (

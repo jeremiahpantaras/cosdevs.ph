@@ -70,13 +70,13 @@ export default function About() {
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="mb-16"
         >
-          <p className="text-zinc-500 uppercase tracking-[0.2em] text-xs">About COS Devs</p>
+          <p className="text-zinc-500 uppercase tracking-[0.2em] text-xs">About Beacon Development Studio</p>
           <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight mt-3 leading-tight">
             Built with intention.<br />Designed for impact.
           </h2>
           <p className="text-zinc-400 mt-4 max-w-2xl leading-relaxed">
             We are a team of developers, designers, and strategists based in Bacolod City, Philippines —
-            building software that matters for businesses across the Visayas.
+            building software that matters for businesses locally and across the globe.
           </p>
         </motion.div>
 
@@ -94,8 +94,8 @@ export default function About() {
             <p className="text-zinc-500 text-xs uppercase tracking-wider mb-2">Who We Are</p>
             <h3 className="text-white text-xl font-medium">A team that cares about what it builds</h3>
             <p className="text-zinc-400 mt-3 leading-relaxed">
-              Founded in Bacolod City, COS Devs is a custom software company dedicated to helping local
-              businesses grow through technology. We combine technical depth with a genuine understanding
+              Founded in Bacolod City, Beacon Development Studio is a custom software studio dedicated to helping
+              enterprises and emerging businesses grow through technology. We combine technical depth with a genuine understanding
               of what our clients actually need.
             </p>
           </Card>
@@ -122,12 +122,11 @@ export default function About() {
           {/* Mission — full width */}
           <Card className="md:col-span-2">
             <p className="text-zinc-500 text-xs uppercase tracking-wider mb-2">Mission</p>
-            <h3 className="text-white text-xl font-medium">Empowering local businesses through software</h3>
+            <h3 className="text-white text-xl font-medium">Empowering businesses through custom software</h3>
             <p className="text-zinc-400 mt-3 leading-relaxed max-w-3xl">
-              To empower local businesses and small companies across Negros Island by delivering tailored,
-              high-quality custom software solutions. We partner with our clients to simplify complex challenges,
-              providing continuous development, maintenance, and support to ensure their digital success and
-              sustainable growth.
+              To empower modern businesses by delivering tailored, high-quality custom software solutions.
+              We partner with our clients to simplify complex operational challenges, providing continuous development,
+              business automation, and proactive support to ensure their digital success and sustainable growth.
             </p>
           </Card>
 
@@ -136,9 +135,8 @@ export default function About() {
             <p className="text-zinc-500 text-xs uppercase tracking-wider mb-2">Vision</p>
             <h3 className="text-white text-xl font-medium">Leading digital transformation by 2030</h3>
             <p className="text-zinc-400 mt-3 leading-relaxed">
-              To be the trusted, long-term digital transformation partner for small and medium enterprises
-              across the Visayas — recognized for impact, reliability, and unwavering commitment to
-              client success.
+              To be the trusted, long-term digital transformation partner for enterprises and growing companies —
+              recognized for impact, technical reliability, and unwavering commitment to client success.
             </p>
           </Card>
 

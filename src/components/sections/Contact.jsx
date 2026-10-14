@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Send, Mail, Phone, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
 import { motion } from 'framer-motion' // eslint-disable-line no-unused-vars
+import { BRAND } from '../../config/brand'
 
 const INPUT_CLASS =
   'w-full bg-zinc-900/40 border border-white/5 rounded-xl p-3 text-white text-sm placeholder:text-zinc-500 focus:border-white/20 focus:outline-none transition-colors duration-200'
@@ -11,10 +12,10 @@ const CONTACT_INFO = [
     label: 'Email',
     content: (
       <a
-        href="mailto:cosdevsph@outlook.ph"
+        href={`mailto:${BRAND.contact.email}`}
         className="text-zinc-400 hover:text-white transition-colors duration-200 text-sm"
       >
-        contact@cosdevs.com
+        {BRAND.contact.email}
       </a>
     ),
   },
@@ -23,10 +24,10 @@ const CONTACT_INFO = [
     label: 'Phone',
     content: (
       <a
-        href="tel:+639085608811"
+        href={`tel:${BRAND.contact.phoneRaw}`}
         className="text-zinc-400 hover:text-white transition-colors duration-200 text-sm"
       >
-        (+63) 908 560 8811
+        {BRAND.contact.phone}
       </a>
     ),
   },
@@ -35,9 +36,9 @@ const CONTACT_INFO = [
     label: 'Location',
     content: (
       <p className="text-zinc-400 text-sm">
-        Bacolod City, Negros Island
+        {BRAND.contact.addressLine1}
         <br />
-        Philippines, 6100
+        {BRAND.contact.addressLine2}
       </p>
     ),
   },

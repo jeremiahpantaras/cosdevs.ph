@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Code, Smartphone, Shield, Brush, Cloud, Users, ArrowUpRight, ArrowRight } from 'lucide-react'
+import { Code, Smartphone, Workflow, Brush, Cloud, Layers, ArrowUpRight, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const MotionDiv = motion.div
@@ -44,39 +44,39 @@ function StarField() {
 const services = [
   {
     icon: Code,
-    title: 'Web Development',
-    description: 'Custom, scalable, and high-performance websites and web apps built with modern frameworks.',
+    title: 'Software Development',
+    description: 'Custom, scalable, and high-performance software systems built to empower complex operations.',
     size: 'large',
     accent: true,
   },
   {
     icon: Smartphone,
     title: 'Mobile App Development',
-    description: 'Intuitive apps for iOS and Android.',
+    description: 'Intuitive, native, and cross-platform apps for iOS and Android.',
     size: 'medium',
   },
   {
-    icon: Shield,
-    title: 'Cybersecurity & QA',
-    description: 'Security audits, penetration testing, and quality assurance.',
+    icon: Workflow,
+    title: 'Business Automation',
+    description: 'Process automation, systems integration, and AI-enabled workflows to optimize business efficiency.',
     size: 'medium',
+  },
+  {
+    icon: Layers,
+    title: 'Web Development',
+    description: 'Modern, responsive, and robust web applications designed to convert visitors and scale effortlessly.',
+    size: 'wide',
   },
   {
     icon: Brush,
-    title: 'UI/UX & Graphic Design',
-    description: 'Modern, user-centered design for web, mobile, and brand assets.',
-    size: 'wide',
+    title: 'UI/UX & Product Design',
+    description: 'World-class, user-centered interface design for web, mobile, and digital products.',
+    size: 'medium',
   },
   {
     icon: Cloud,
     title: 'Cloud & DevOps',
-    description: 'Infrastructure setup, CI/CD pipelines, and scalable deployments.',
-    size: 'medium',
-  },
-  {
-    icon: Users,
-    title: 'Consulting & Training',
-    description: 'Expert guidance and workshops for teams.',
+    description: 'Infrastructure setup, continuous deployment pipelines, and scalable cloud management.',
     size: 'medium',
   },
 ]

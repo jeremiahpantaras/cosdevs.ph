@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react'
+import { BRAND } from '../../config/brand'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -13,22 +14,22 @@ const navLinks = [
 const socialLinks = [
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/profile.php?id=61582553202066',
+    href: BRAND.socials.facebook,
     icon: <Facebook className="w-5 h-5" />,
   },
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/cosdevs/',
+    href: BRAND.socials.instagram,
     icon: <Instagram className="w-5 h-5" />,
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/company/cos-devsph',
+    href: BRAND.socials.linkedin,
     icon: <Linkedin className="w-5 h-5" />,
   },
   {
     label: 'Email',
-    href: 'mailto:cosdevsph@outlook.ph',
+    href: `mailto:${BRAND.contact.email}`,
     icon: <Mail className="w-5 h-5" />,
   },
 ]
@@ -40,13 +41,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Column 1 — Brand */}
           <div>
-            <img
-              src="/COSDevsLogoText2026.webp"
-              alt="COS Devs"
-              className="h-24 w-auto"
-            />
-            <p className="text-zinc-500 text-base mt-3 leading-relaxed">
-              Building digital products that are fast, scalable, and built to last.
+            <div className="flex items-center gap-3">
+              <img
+                src={BRAND.assets.logo}
+                alt={BRAND.name}
+                className="h-14 w-14 rounded-xl object-contain shadow-lg shadow-white/5 border border-white/10"
+              />
+              <div>
+                <span className="text-white font-semibold text-lg tracking-tight block">
+                  Beacon
+                </span>
+                <span className="text-zinc-400 text-xs tracking-wider uppercase block">
+                  Development Studio
+                </span>
+              </div>
+            </div>
+            <p className="text-zinc-500 text-sm mt-4 leading-relaxed max-w-sm">
+              {BRAND.tagline}
             </p>
           </div>
 
@@ -89,9 +100,9 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-zinc-600 text-sm">
-            &copy; {new Date().getFullYear()} COS Devs. All rights reserved.
+            &copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </p>
-          <p className="text-zinc-600 text-sm">COS Devs</p>
+          <p className="text-zinc-600 text-sm">{BRAND.name}</p>
         </div>
       </div>
     </footer>

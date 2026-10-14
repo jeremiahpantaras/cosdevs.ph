@@ -2,6 +2,7 @@ import { useEffect, useRef, lazy, Suspense } from 'react'
 import { motion as Motion } from 'motion/react'
 import { useNavigate } from 'react-router-dom'
 import GlowingSphere from '../ui/GlowingSphere'
+import { BRAND } from '../../config/brand'
 
 const HeroScene = lazy(() => import('../ui/HeroScene'))
 
@@ -135,7 +136,7 @@ export default function Hero() {
               animate={{ backgroundPosition: ['200% 0%', '-200% 0%'] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
             >
-              City of Smiles Developers
+              {BRAND.badge}
             </Motion.span>
           </Motion.div>
 
@@ -146,9 +147,9 @@ export default function Hero() {
             transition={{ duration: 0.85, delay: 0.15, ease: 'easeOut' }}
             className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold tracking-tight text-white leading-[1.08] sm:leading-[1.05]"
           >
-            Your Vision,{' '}
+            Turning Your Vision,{' '}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-300 to-zinc-500">
-              Built into
+              Into
             </span>
             <br />
             Digital Reality.
@@ -161,7 +162,7 @@ export default function Hero() {
             transition={{ duration: 0.85, delay: 0.3, ease: 'easeOut' }}
             className="text-zinc-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl"
           >
-            Be the architect of your most ambitious ideas. Crafting them into a refined digital reality is the new standard.
+            Empowering forward-thinking businesses with custom software development, modern web applications, mobile platforms, and intelligent business automation.
           </Motion.p>
 
           {/* CTA Buttons */}

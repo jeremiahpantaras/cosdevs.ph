@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Layers, Brush, Code, Smartphone, Server, Users, ArrowUpRight } from 'lucide-react'
+import { Layers, Brush, Code, Smartphone, Server, Workflow, ArrowUpRight } from 'lucide-react'
 
 const MotionDiv = motion.div
 
@@ -125,41 +125,41 @@ function StarField() {
 const services = [
   {
     icon: Code,
-    title: 'Custom Software Development',
+    title: 'Software Development',
     description:
-      'Bespoke solutions engineered to your exact specifications — built for performance, scalability, and long-term growth.',
+      'Bespoke software solutions engineered to your exact specifications — built for performance, scalability, and long-term enterprise growth.',
     size: 'large',
     accent: true,
   },
   {
-    icon: Brush,
-    title: 'UI/UX Design',
-    description: 'Intentional, user-centered interfaces that convert.',
+    icon: Smartphone,
+    title: 'Mobile App Development',
+    description: 'Native and cross-platform mobile apps for iOS and Android built for seamless engagement.',
     size: 'medium',
   },
   {
-    icon: Smartphone,
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform apps for iOS and Android.',
+    icon: Workflow,
+    title: 'Business Automation',
+    description: 'Streamline workflows, connect systems, and eliminate manual bottlenecks with custom automation.',
     size: 'medium',
   },
   {
     icon: Layers,
-    title: 'Web Application Development',
+    title: 'Web Development',
     description:
-      'Modern, responsive web applications built with the latest frameworks to elevate your digital presence.',
+      'Modern, responsive web applications built with cutting-edge frameworks to elevate your digital presence.',
     size: 'wide',
+  },
+  {
+    icon: Brush,
+    title: 'UI/UX Design',
+    description: 'Intentional, user-centered interfaces and digital product designs that convert.',
+    size: 'medium',
   },
   {
     icon: Server,
     title: 'Maintenance & Support',
-    description: 'Continuous updates and monitoring to keep systems secure.',
-    size: 'medium',
-  },
-  {
-    icon: Users,
-    title: 'Consulting & Training',
-    description: 'Expert guidance and workshops for your team.',
+    description: 'Continuous updates, cloud optimization, and monitoring to keep systems secure and resilient.',
     size: 'medium',
   },
 ]
