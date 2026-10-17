@@ -24,8 +24,8 @@ export const BRAND = {
     linkedin: 'https://linkedin.com/company/cos-devsph',
   },
 
-  // Current deployment URL. Update when the final domain is live (canonical, OG, sitemap, robots).
-  siteUrl: 'https://cosdevsph.vercel.app',
+  // Live domain. Also set statically in index.html (OG, Twitter, canonical, JSON-LD), public/sitemap.xml and public/robots.txt.
+  siteUrl: 'https://www.elpisoft.com',
 
   formspreeEndpoint: 'https://formspree.io/f/xovpdlzz',
 
