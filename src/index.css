@@ -1,33 +1,97 @@
 @import "tailwindcss";
 
+/* Elpisoft design tokens — values from Brand Guidelines v1.0 (colour p15–17, type p19–20). */
 @theme {
-  --color-brandBlue-darkest: #070F2B;
-  --color-brandBlue-dark: #001f40;
-  --color-brandBlue-medium: #002853;
+  --color-navy: #0E1B3D;
+  --color-deep-navy: #08112A;
+  --color-amber: #FFB020;
+  --color-coral: #FF6B4A;
+  --color-horizon: #2F5DE6;
+  --color-slate: #5A6377;
+  --color-mist: #E4E1D9;
+  --color-cloud: #F7F5F0;
 
-  --font-family-sans: "Geist", ui-sans-serif, system-ui;
+  --font-sans: "Plus Jakarta Sans Variable", Arial, Helvetica, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, Menlo, monospace;
+
+  --radius-control: 8px;
+  --radius-media: 12px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-body {
-  @apply bg-black text-white;
-  font-family: "Geist", ui-sans-serif, system-ui;
-  overflow-x: hidden;
+/* Dawn gradient: 45deg, coral (bottom-left) rising to amber (top-right). Exactly two stops. */
+@utility bg-dawn {
+  background-image: linear-gradient(45deg, #FF6B4A 0%, #FFB020 100%);
 }
 
-#root {
-  overflow-x: hidden;
+/* Type scale (p20): 1.25 ratio from 16px. Display/H1/H2 scale down fluidly on small screens. */
+@utility type-display {
+  font-size: clamp(2.5rem, 1.2rem + 5.5vw, 4.5rem);
+  line-height: 1.0556;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+@utility type-h1 {
+  font-size: clamp(2.125rem, 1.2rem + 2.6vw, 3rem);
+  line-height: 1.1667;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+@utility type-h2 {
+  font-size: clamp(1.625rem, 1.1rem + 1.6vw, 2rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+@utility type-h3 {
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  line-height: 1.3333;
+  font-weight: 600;
+}
+@utility type-body-lg {
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);
+  line-height: 1.6;
+}
+@utility type-caption {
+  font-size: 0.8125rem;
+  line-height: 1.5385;
+  font-weight: 500;
+}
+@utility type-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.blur-3xl {
-  filter: blur(40px);
-  -webkit-filter: blur(40px);
-}
-
-@keyframes shine {
-  0% {
-    background-position: 200% center;
+@layer base {
+  html {
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
   }
-  100% {
-    background-position: -200% center;
+  body {
+    @apply bg-cloud text-navy font-sans antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  ::selection {
+    background: #FFB020;
+    color: #0E1B3D;
+  }
+  :focus-visible {
+    outline: 2px solid #2F5DE6;
+    outline-offset: 2px;
+  }
+  /* On navy surfaces the focus ring keeps Horizon Blue but needs a light offset to stay visible. */
+  .on-dark :focus-visible {
+    outline-color: #FFFFFF;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
 }

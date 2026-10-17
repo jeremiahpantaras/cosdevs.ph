@@ -1,65 +1,56 @@
-# 🚀 Beacon Development Studio
+# Elpisoft website
 
-> **Turning your vision into digital reality.**
+> **Software built on hope.**
 
-Welcome to **Beacon Development Studio** – a modern, high-performance portfolio website built with React, Vite, and TailwindCSS.  
-We architect and engineer bespoke digital solutions that transform ambitious ideas into reality, blending technology, craftsmanship, and user-centric design.
+The company website for Elpisoft, a custom software studio in Bacolod City, Philippines (formerly COS Devs).
+Built with React 19, Vite 7 and Tailwind CSS v4.
 
----
+## Stack
 
-## 🛠️ Core Services
+- [React 19](https://react.dev/) and [React Router 7](https://reactrouter.com/) (library mode)
+- [Tailwind CSS v4](https://tailwindcss.com/), with tokens defined in `src/index.css`
+- [GSAP](https://gsap.com/) (`useGSAP`, ScrollTrigger, SplitText) for the hero sequence and scroll-linked effects
+- [Motion for React](https://motion.dev/) (`motion/react`) for UI transitions and interaction state
+- [Lucide](https://lucide.dev/) icons
+- Plus Jakarta Sans and JetBrains Mono, self-hosted through Fontsource
 
-- **Software Development:** Bespoke, scalable software solutions engineered for performance and enterprise growth.
-- **Web Development:** Modern, high-performance web applications built with cutting-edge frameworks.
-- **Mobile App Development:** Intuitive native and cross-platform mobile apps for iOS and Android.
-- **Business Automation:** Process automation, systems integration, and intelligent workflows to accelerate business efficiency.
-
----
-
-## 🖌️ Features
-
-- **Floating Navbar:** Sleek navigation with smooth scroll and active section highlighting.
-- **Hero Section:** Full-bleed 3D canvas, glowing sphere, animated metrics, and engaging call-to-actions.
-- **Services Bento Grid:** Interactive cards showcasing our core expertise with micro-interactions.
-- **About Section:** Mission, vision, and streamlined process presented with elegant animations.
-- **Work Showcase:** Dual-row infinite scrolling marquee and detailed project tech stack breakdown.
-- **Contact:** Accessible macOS-style form and direct studio contact information.
-- **Footer:** Modern, brand-aligned footer with navigation, social connections, and copyright.
-
----
-
-## 🛠️ Tech Stack
-
-- [React 19](https://react.dev/) – UI Library
-- [Vite 7](https://vitejs.dev/) – Lightning-fast build tool
-- [TailwindCSS v4](https://tailwindcss.com/) – Utility-first CSS engine
-- [Three.js & R3F](https://threejs.org/) – 3D ambient canvas
-- [Framer Motion](https://www.framer.com/motion/) – Animations & micro-interactions
-- [Lucide Icons](https://lucide.dev/) – SVG icons
-
----
-
-## 🧑‍💻 Getting Started
+## Getting started
 
 ```bash
-# Install dependencies
 npm install
-
-# Start the development server
-npm run dev
-
-# Build for production
-npm run build
+npm run dev      # development server
+npm run lint     # ESLint
+npm run build    # production build
+npm run preview  # serve the production build
 ```
 
----
+## Structure
 
-## 🤝 Contact
+```
+src/
+  config/brand.js        identity, contact details, asset paths (single source of truth)
+  data/                  services, projects, process, values, team
+  lib/gsap.js            the only place GSAP plugins are registered
+  lib/motion.js          shared timing tokens
+  components/brand/      Logo (official master files) and SunriseMark (sun-over-horizon graphic)
+  components/layout/     header, footer, skip link, scroll handling, per-route metadata
+  components/ui/         buttons, sections, project cards, contact form, reveal helpers
+  components/sections/   homepage sections and the closing call to action
+  pages/                 one file per route
+public/brand/            master logo SVGs used by the site
+```
 
-Ready to build something amazing?  
-Reach out via the Contact section or email us at **beacondevstudio@gmail.com**.
+## Brand rules in code
 
----
+These come from the Elpisoft Brand Guidelines v1.0.
 
-**Crafted with passion by Beacon Development Studio.**  
-*Turning your vision into digital reality.*
+- Use `Elpisoft` in running text. The lowercase `elpisoft` appears only inside the logo artwork.
+- Render the logo only from the master files in `public/brand/` via `<img>` (never inline, recolour, animate or add effects), using the version that matches the background.
+- Colours are the eight brand tokens in `src/index.css`. The Dawn gradient (`bg-dawn`, 45°, coral to amber) is used sparingly.
+- Do not set Coral or Amber text on light backgrounds (contrast). Use Navy on Coral.
+- GSAP and Motion must never animate the same element. GSAP owns hero, scroll-linked and horizon effects (marked with `data-*` hooks). Motion owns everything else.
+- Every animation must degrade to a complete static page under `prefers-reduced-motion`.
+
+## Contact form
+
+The form posts to Formspree (endpoint in `src/config/brand.js`) with the fields `name`, `email`, `subject`, `message` and the `_gotcha` honeypot.

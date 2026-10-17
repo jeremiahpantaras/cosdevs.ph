@@ -1,15 +1,15 @@
 /**
- * Brand Configuration for Beacon Development Studio
- * Single source of truth for company brand identity, contact details, and core services.
+ * Brand configuration for Elpisoft.
+ * Single source of truth for identity, contact details and asset paths.
+ * Naming rule (Brand Guidelines p3): "Elpisoft" in running text; lowercase "elpisoft" only inside logo artwork.
  */
 export const BRAND = {
-  name: 'Beacon Development Studio',
-  shortName: 'Beacon Studio',
-  tagline: 'Turning your vision into digital reality.',
-  badge: 'Beacon Development Studio',
+  name: 'Elpisoft',
+  formerName: 'COS Devs',
+  tagline: 'Software built on hope.',
   description:
-    'Beacon Development Studio is a premier custom software development studio based in Bacolod City, Philippines. We craft modern, scalable, and impactful digital solutions for businesses and organizations worldwide.',
-  
+    'Elpisoft is a custom software studio in Bacolod City, Philippines. We design and engineer dependable web, mobile and automation products that help teams move forward with confidence.',
+
   contact: {
     email: 'beacondevstudio@gmail.com',
     phone: '(+63) 908 560 8811',
@@ -24,12 +24,15 @@ export const BRAND = {
     linkedin: 'https://linkedin.com/company/cos-devsph',
   },
 
-  // Current deployment URL - update when custom frontend domain is finalized
-  frontendUrl: 'https://cosdevsph.vercel.app',
+  // Current deployment URL. Update when the final domain is live (canonical, OG, sitemap, robots).
+  siteUrl: 'https://cosdevsph.vercel.app',
+
+  formspreeEndpoint: 'https://formspree.io/f/xovpdlzz',
 
   assets: {
-    logo: '/beacon-logo.png',
-    favicon: '/beacon-favicon.svg',
-    thumbnail: '/beacon-thumbnail.png',
+    logoFullColor: '/brand/elpisoft_horizontal_full-color.svg',
+    logoReversed: '/brand/elpisoft_horizontal_reversed.svg',
+    symbol: '/brand/elpisoft_symbol_full-color.svg',
+    ogImage: '/og-image.png',
   },
-};
+}

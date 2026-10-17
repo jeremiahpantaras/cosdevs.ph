@@ -2,105 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/beacon-favicon.svg" />
-    <link rel="alternate icon" type="image/png" href="/beacon-favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Primary Meta Tags -->
-    <title>Beacon Development Studio - Turning Your Vision into Digital Reality</title>
-    <meta name="title" content="Beacon Development Studio - Turning Your Vision into Digital Reality" />
-    <meta name="description" content="Beacon Development Studio is a premier custom software development studio based in Bacolod City, Philippines. Turning your vision into digital reality with modern, scalable software, web, mobile, and business automation solutions." />
-    <meta name="keywords" content="Beacon Development Studio, software development, web development, mobile app development, business automation, custom software, IT solutions, Bacolod City, Philippines, full-stack development, UI/UX design" />
-    <meta name="author" content="Beacon Development Studio" />
+    <!-- Favicons (Elpisoft brand kit) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0E1B3D" />
+
+    <!-- Primary Meta Tags (per-route titles and descriptions are set in the app) -->
+    <title>Elpisoft — Software built on hope.</title>
+    <meta name="title" content="Elpisoft — Software built on hope." />
+    <meta name="description" content="Elpisoft is a custom software studio in Bacolod City, Philippines. We design and engineer dependable web, mobile and automation products that help teams move forward with confidence." />
+    <meta name="author" content="Elpisoft" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    
-    <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cosdevsph.vercel.app/" />
-    <meta property="og:title" content="Beacon Development Studio - Turning Your Vision into Digital Reality" />
-    <meta property="og:description" content="Turning your vision into digital reality. Bespoke software development, web applications, mobile apps, and business automation." />
-    <meta property="og:image" content="https://cosdevsph.vercel.app/beacon-thumbnail.png" />
+    <meta property="og:title" content="Elpisoft — Software built on hope." />
+    <meta property="og:description" content="We design and engineer dependable web, mobile and automation products that help teams move forward with confidence." />
+    <meta property="og:image" content="https://cosdevsph.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Beacon Development Studio" />
-    
+    <meta property="og:site_name" content="Elpisoft" />
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://cosdevsph.vercel.app/" />
-    <meta property="twitter:title" content="Beacon Development Studio - Turning Your Vision into Digital Reality" />
-    <meta property="twitter:description" content="Turning your vision into digital reality. Bespoke software development, web applications, mobile apps, and business automation." />
-    <meta property="twitter:image" content="https://cosdevsph.vercel.app/beacon-thumbnail.png" />
-    
-    <!-- Additional Meta Tags -->
-    <meta name="theme-color" content="#0a1929" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Elpisoft — Software built on hope." />
+    <meta name="twitter:description" content="We design and engineer dependable web, mobile and automation products that help teams move forward with confidence." />
+    <meta name="twitter:image" content="https://cosdevsph.vercel.app/og-image.png" />
+
     <link rel="canonical" href="https://cosdevsph.vercel.app/" />
-    
-    <!-- Disable Right Click and Inspect
-    <script>
-      // // Disable right-click
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-      });
-      
-      // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-      document.addEventListener('keydown', function(e) {
-        // F12
-        if (e.keyCode === 123) {
-          e.preventDefault();
-          return false;
-        }
-        // Ctrl+Shift+I
-        if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-          e.preventDefault();
-          return false;
-        }
-        // Ctrl+Shift+J
-        if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
-          e.preventDefault();
-          return false;
-        }
-        // Ctrl+U
-        if (e.ctrlKey && e.keyCode === 85) {
-          e.preventDefault();
-          return false;
-        }
-        // Ctrl+Shift+C
-        if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
-          e.preventDefault();
-          return false;
-        }
-      });
-      
-      // Detect if DevTools is open
-      const devtools = /./;
-      devtools.toString = function() {
-        this.opened = true;
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Elpisoft",
+        "alternateName": "COS Devs",
+        "url": "https://cosdevsph.vercel.app/",
+        "logo": "https://cosdevsph.vercel.app/brand/elpisoft_symbol_full-color.svg",
+        "slogan": "Software built on hope.",
+        "email": "beacondevstudio@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bacolod City",
+          "addressRegion": "Negros Occidental",
+          "postalCode": "6100",
+          "addressCountry": "PH"
+        },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61582553202066",
+          "https://www.instagram.com/cosdevs/",
+          "https://linkedin.com/company/cos-devsph"
+        ]
       }
-      
-      setInterval(function() {
-        console.log('%c', devtools);
-        if (devtools.opened) {
-          window.location.reload();
-        }
-        devtools.opened = false;
-      }, 1000);
-      
-      // Disable console
-      if (!window.console) window.console = {};
-      var methods = ["log", "debug", "warn", "info", "error"];
-      for (var i = 0; i < methods.length; i++) {
-        console[methods[i]] = function() {};
-      }
-    </script> -->
+    </script>
   </head>
   <body>
     <div id="root"></div>

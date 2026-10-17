@@ -1,290 +1,95 @@
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
-import { FaLinkedin, FaGithub, FaTwitter, FaGlobe } from 'react-icons/fa';
+import PageMeta from '../components/layout/PageMeta'
+import PageIntro from '../components/ui/PageIntro'
+import Section from '../components/ui/Section'
+import Eyebrow from '../components/ui/Eyebrow'
+import Reveal from '../components/ui/Reveal'
+import SplitHeading from '../components/ui/SplitHeading'
+import Approach from '../components/sections/home/Approach'
+import Values from '../components/sections/home/Values'
+import ClosingCta from '../components/sections/ClosingCta'
+import { TEAM } from '../data/team'
+import { BRAND } from '../config/brand'
 
-import jeremiahImg from '../assets/images/teamProfile/jeremiah.png';
-import wenardImg from '../assets/images/teamProfile/wenard.png';
-import ChromaGrid from '../components/ui/ChromaGrid';
-
-const teamMembers = [
-  {
-    id: 1,
-    name: 'Jeremiah',
-    nickname: 'Pantaras',
-    position: 'Founder · Chief Executive Officer · AI Engineer · Senior Software Engineer',
-    gradient: 'from-purple-500 via-pink-400 to-yellow-300',
-    image: jeremiahImg,
-    handle: '@jeremiahpantaras',
-    portfolio: { url: 'https://jeremiah.cosedevs.com/' }
-  },
-  {
-    id: 2,
-    name: 'Wenard Roy',
-    nickname: 'Barrera',
-    position: 'Co-founder · UI/UX Designer · Front End Developer · Full Stack Web Developer · Mobile Developer',
-    gradient: 'from-pink-500 via-red-400 to-yellow-300',
-    image: wenardImg,
-    handle: '@wenardbarrera',
-    portfolio: { url: 'https://kr1stik.cosedevs.com/' }
-  }
-];
-
-/* ---------- Stars canvas ---------- */
-function StarField() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animId;
-
-    const STAR_COUNT = 260;
-    const stars = [];
-
-    function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    }
-
-    function buildStars() {
-      stars.length = 0;
-      for (let i = 0; i < STAR_COUNT; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.2 + 0.2,
-          alpha: Math.random() * 0.6 + 0.2,
-          speed: Math.random() * 0.004 + 0.002,
-          phase: Math.random() * Math.PI * 2,
-        });
-      }
-    }
-
-    function draw(t) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const s of stars) {
-        const a = s.alpha * (0.55 + 0.45 * Math.sin(t * s.speed + s.phase));
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${a})`;
-        ctx.fill();
-      }
-      animId = requestAnimationFrame(draw);
-    }
-
-    const ro = new ResizeObserver(() => { resize(); buildStars(); });
-    ro.observe(canvas);
-    resize();
-    buildStars();
-    animId = requestAnimationFrame(draw);
-
-    return () => {
-      cancelAnimationFrame(animId);
-      ro.disconnect();
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-    />
-  );
-}
+const NAME_PARTS = [
+  { label: 'Greek · ἐλπίς', title: 'Elpis', body: 'Hope: the expectation that tomorrow can be better than today.' },
+  { label: 'English', title: 'Soft', body: 'Software: the craft we use to turn that expectation into reality.' },
+]
 
 export default function AboutPage() {
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1 } },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
-  };
-
-  const chromaTeamItems = teamMembers.map((member) => ({
-    image: member.image,
-    nickname: member.nickname,
-    title: member.name,
-    subtitle: member.position,
-    handle: member.handle,
-    accent: member.id === 1 ? '#a855f7' : '#38bdf8',
-    imageClassName: 'absolute inset-0 block h-full w-full select-none object-cover object-top [-webkit-user-drag:none]',
-    footer: (
-      <div className="flex items-center justify-between pt-1">
-        <div className="flex gap-2">
-          {member.portfolio?.url && member.portfolio.url !== '#' ? (
-            <a
-              href={member.portfolio.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl flex items-center justify-center transition-all duration-200"
-              aria-label={`${member.name}'s portfolio`}
-            >
-              <FaGlobe className="text-zinc-400 text-xs" />
-            </a>
-          ) : (
-            <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-              <FaGlobe className="text-zinc-400 text-xs" />
-            </div>
-          )}
-          <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-            <FaGithub className="text-zinc-400 text-xs" />
-          </div>
-          <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-            <FaLinkedin className="text-zinc-400 text-xs" />
-          </div>
-          <div className="w-9 h-9 bg-white/5 border border-white/5 rounded-xl flex items-center justify-center opacity-40">
-            <FaTwitter className="text-zinc-400 text-xs" />
-          </div>
-        </div>
-        {member.portfolio?.url && member.portfolio.url !== '#' && (
-          <a
-            href={member.portfolio.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-zinc-400 hover:text-white transition-colors"
-          >
-            Portfolio &rarr;
-          </a>
-        )}
-      </div>
-    )
-  }));
-
   return (
-    <section className="relative min-h-screen bg-black py-24 pt-40 px-6 lg:px-12 overflow-hidden">
-
-      {/* Galaxy radial glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,30,100,0.45)_0%,rgba(10,5,30,0.25)_55%,transparent_80%)] blur-2xl" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(20,50,90,0.3)_0%,transparent_70%)] blur-3xl" />
-      </div>
-
-      {/* Stars */}
-      <StarField />
-
-      {/* Grain overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '300px 300px',
-        }}
+    <>
+      <PageMeta
+        title="About"
+        path="/about"
+        description="Elpisoft builds reliable, human-centred software in Bacolod City, Philippines. Meet the team, and read how we work and what we believe."
       />
+      <PageIntro eyebrow="03 — About" title={`About ${BRAND.name}`}>
+        <p>
+          {BRAND.name} is a custom software studio in Bacolod City, Negros Island. We build reliable, human-centred software
+          that helps people and businesses move forward with confidence. We were previously known as {BRAND.formerName}.
+        </p>
+      </PageIntro>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <Section surface="white" aria-labelledby="name-heading">
+        <Eyebrow>Our name</Eyebrow>
+        <SplitHeading as="h2" className="type-h1 mt-5">Two words. One promise.</SplitHeading>
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {NAME_PARTS.map((part, i) => (
+            <Reveal key={part.title} delay={i * 0.06} className="border-t border-mist pt-5">
+              <p className="type-label text-slate">{part.label}</p>
+              <p className="type-h1 mt-3">{part.title}</p>
+              <p className="mt-3 text-slate">{part.body}</p>
+            </Reveal>
+          ))}
+          <Reveal delay={0.12} className="border-t-2 border-navy pt-5">
+            <p className="type-label text-slate">{BRAND.name}</p>
+            <p className="type-h3 mt-3">Software that gives people reasons to be hopeful.</p>
+          </Reveal>
+        </div>
+        <span id="name-heading" className="sr-only">Our name</span>
+      </Section>
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-16"
-        >
-          <p className="text-zinc-500 uppercase tracking-[0.2em] text-xs">About Us</p>
-          <h1 className="text-3xl md:text-5xl font-medium text-white tracking-tight mt-3 leading-tight">
-            Meet Beacon Development Studio
-          </h1>
-          <p className="text-zinc-400 mt-4 max-w-2xl leading-relaxed">
-            A passionate team of developers, designers, and strategists based in Bacolod City, Philippines —
-            building modern, scalable software for businesses locally and worldwide.
-          </p>
-        </motion.div>
+      <Values surface="cloud" eyebrow="Mission and values" showNameNote={false} showVision />
+      <Approach surface="white" eyebrow="How we work" heading="A clear process, with no surprises" />
 
-        {/* Info Cards */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
-        >
-          {/* Mission */}
-          <motion.div variants={itemVariants} className="relative bg-zinc-950 border border-white/5 rounded-3xl p-8 md:p-10 overflow-hidden hover:-translate-y-1 hover:border-white/10 transition-all duration-300 ease-out">
-            <div className="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-white/3 to-transparent" />
-            <div className="relative z-10">
-              <p className="text-zinc-500 text-xs uppercase tracking-wider mb-2">Mission</p>
-              <h2 className="text-white text-xl font-medium">Empowering businesses through custom software</h2>
-              <p className="text-zinc-400 mt-3 leading-relaxed">
-                To empower modern businesses by delivering tailored, high-quality custom software solutions —
-                simplifying complex challenges, automating operations, and supporting their digital success and sustainable growth.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Vision */}
-          <motion.div variants={itemVariants} className="relative bg-zinc-950 border border-white/5 rounded-3xl p-8 md:p-10 overflow-hidden hover:-translate-y-1 hover:border-white/10 transition-all duration-300 ease-out">
-            <div className="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-white/3 to-transparent" />
-            <div className="relative z-10">
-              <p className="text-zinc-500 text-xs uppercase tracking-wider mb-2">Vision</p>
-              <h2 className="text-white text-xl font-medium">Leading digital transformation by 2030</h2>
-              <p className="text-zinc-400 mt-3 leading-relaxed">
-                To be the trusted, long-term digital transformation partner for enterprises and growing companies —
-                recognized for impact, technical reliability, and unwavering commitment to client success.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Why Choose Us — full width */}
-          <motion.div variants={itemVariants} className="relative bg-zinc-950 border border-white/5 rounded-3xl p-8 md:p-10 overflow-hidden hover:-translate-y-1 hover:border-white/10 transition-all duration-300 ease-out md:col-span-2">
-            <div className="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-white/3 to-transparent" />
-            <div className="relative z-10">
-              <p className="text-zinc-500 text-xs uppercase tracking-wider mb-2">Why Choose Beacon Development Studio</p>
-              <h2 className="text-white text-xl font-medium">The right partner for your growth</h2>
-              <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                {[
-                  'Expertise in modern frameworks and technologies',
-                  'Client-focused approach and transparent communication',
-                  'Creative solutions tailored to your needs',
-                  'Timely delivery and ongoing support',
-                  'Agile development and rapid prototyping',
-                  'Mobile-first, responsive, and accessible design',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-2 h-1 w-1 rounded-full bg-zinc-600 shrink-0" />
-                    <span className="text-zinc-400 text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
+      <Section surface="cloud" aria-labelledby="team-heading">
+        <Reveal>
+          <Eyebrow>The team</Eyebrow>
+          <h2 id="team-heading" className="type-h2 mt-5">The people behind the work</h2>
+        </Reveal>
+        <ul className="mt-10 grid gap-10 sm:grid-cols-2 lg:max-w-[760px]">
+          {TEAM.map((member, i) => (
+            <Reveal as="li" key={member.id} delay={i * 0.06}>
+              <img
+                src={member.image}
+                alt={`Portrait of ${member.name}`}
+                width="720"
+                height="720"
+                loading="lazy"
+                decoding="async"
+                className="aspect-square w-full max-w-[320px] rounded-media border border-mist object-cover object-top"
+              />
+              <h3 className="type-h3 mt-5">{member.name}</h3>
+              <p className="mt-1 font-semibold text-slate">{member.role}</p>
+              <ul className="type-label mt-3 space-y-1 text-slate">
+                {member.details.map((d) => <li key={d}>{d}</li>)}
               </ul>
-            </div>
-          </motion.div>
-        </motion.div>
+              {member.portfolio && (
+                <a
+                  href={member.portfolio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex min-h-8 items-center font-semibold text-horizon underline underline-offset-4"
+                >
+                  Portfolio<span className="sr-only"> of {member.name} (opens in a new tab)</span>
+                </a>
+              )}
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
 
-        {/* Team Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <p className="text-zinc-500 uppercase tracking-[0.2em] text-xs mb-3">The People</p>
-          <h2 className="text-2xl md:text-3xl font-medium text-white tracking-tight mb-10">Our Team</h2>
-
-          <div className="max-w-3xl mx-auto">
-            <ChromaGrid
-              items={chromaTeamItems}
-              columns={2}
-              radius={280}
-              reveal="spotlight"
-              minCardWidth={280}
-              gap={24}
-              aspectRatio="1 / 1"
-              cardRadius={24}
-              showInfo
-              frame={false}
-              softness={0.6}
-              damping={0.45}
-              fadeOut={0.6}
-              grayscale={1}
-              dim={0.12}
-              glow={0.5}
-              borderGlow={1}
-            />
-          </div>
-        </motion.div>
-
-      </div>
-    </section>
-  );
+      <ClosingCta />
+    </>
+  )
 }
