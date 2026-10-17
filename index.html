@@ -11,59 +11,37 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0E1B3D" />
 
-    <!-- Primary Meta Tags (per-route titles and descriptions are set in the app) -->
-    <title>Elpisoft — Software built on hope.</title>
-    <meta name="title" content="Elpisoft — Software built on hope." />
-    <meta name="description" content="Elpisoft is a custom software studio in Bacolod City, Philippines. We design and engineer dependable web, mobile and automation products that help teams move forward with confidence." />
     <meta name="author" content="Elpisoft" />
-    <meta name="robots" content="index, follow" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Tags shared by every page -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.elpisoft.com/" />
-    <meta property="og:title" content="Elpisoft — Software built on hope." />
-    <meta property="og:description" content="We design and engineer dependable web, mobile and automation products that help teams move forward with confidence." />
-    <meta property="og:image" content="https://www.elpisoft.com/og-image.png" />
+    <meta property="og:site_name" content="Elpisoft" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="Elpisoft. Software built on hope." />
-    <meta property="og:site_name" content="Elpisoft" />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Elpisoft — Software built on hope." />
-    <meta name="twitter:description" content="We design and engineer dependable web, mobile and automation products that help teams move forward with confidence." />
-    <meta name="twitter:image" content="https://www.elpisoft.com/og-image.png" />
     <meta name="twitter:image:alt" content="Elpisoft. Software built on hope." />
 
+    <!--
+      Route-specific tags (title, description, robots, canonical, Open Graph, Twitter, JSON-LD).
+      scripts/prerender.mjs regenerates this block for every route at build time from src/seo/routeMeta.js.
+      The home-page values below are what the dev server uses.
+    -->
+    <!--seo-head-->
+    <title>Elpisoft — Custom software, web and mobile development</title>
+    <meta name="description" content="Elpisoft is a software studio in Bacolod City, Philippines. We build custom software, web and mobile apps, and business automation, and work with clients remotely." />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.elpisoft.com/" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Elpisoft",
-        "alternateName": "COS Devs",
-        "url": "https://www.elpisoft.com/",
-        "logo": "https://www.elpisoft.com/brand/elpisoft_symbol_full-color.svg",
-        "slogan": "Software built on hope.",
-        "email": "beacondevstudio@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bacolod City",
-          "addressRegion": "Negros Occidental",
-          "postalCode": "6100",
-          "addressCountry": "PH"
-        },
-        "sameAs": [
-          "https://www.facebook.com/profile.php?id=61582553202066",
-          "https://www.instagram.com/cosdevs/",
-          "https://linkedin.com/company/cos-devsph"
-        ]
-      }
-    </script>
+    <meta property="og:title" content="Elpisoft — Custom software, web and mobile development" />
+    <meta property="og:description" content="Elpisoft is a software studio in Bacolod City, Philippines. We build custom software, web and mobile apps, and business automation, and work with clients remotely." />
+    <meta property="og:url" content="https://www.elpisoft.com/" />
+    <meta property="og:image" content="https://www.elpisoft.com/og-image.png" />
+    <meta name="twitter:title" content="Elpisoft — Custom software, web and mobile development" />
+    <meta name="twitter:description" content="Elpisoft is a software studio in Bacolod City, Philippines. We build custom software, web and mobile apps, and business automation, and work with clients remotely." />
+    <meta name="twitter:image" content="https://www.elpisoft.com/og-image.png" />
+    <!--/seo-head-->
   </head>
   <body>
     <div id="root"></div>

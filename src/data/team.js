@@ -8,7 +8,7 @@ export const TEAM = [
     role: 'Founder and CEO',
     details: ['AI engineer', 'Senior software engineer'],
     image: jeremiah,
-    portfolio: 'https://jeremiah.cosedevs.com/',
+    portfolio: 'https://jeremiah.elpisoft.com/',
   },
   {
     id: 'wenard',
@@ -16,6 +16,6 @@ export const TEAM = [
     role: 'Co-founder',
     details: ['UI/UX designer', 'Front-end and full-stack web developer', 'Mobile developer'],
     image: wenard,
-    portfolio: 'https://kr1stik.cosedevs.com/',
+    portfolio: 'https://kr1stik.elpisoft.com/',
   },
 ]

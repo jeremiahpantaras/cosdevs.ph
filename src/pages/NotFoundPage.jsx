@@ -1,4 +1,3 @@
-import PageMeta from '../components/layout/PageMeta'
 import Section from '../components/ui/Section'
 import Eyebrow from '../components/ui/Eyebrow'
 import Button from '../components/ui/Button'
@@ -6,7 +5,6 @@ import Button from '../components/ui/Button'
 export default function NotFoundPage() {
   return (
     <>
-      <PageMeta title="Page not found" path="/404" description="This page could not be found." />
       <Section surface="cloud" className="flex min-h-[70svh] items-center pt-32">
         <div>
           <Eyebrow>Error 404</Eyebrow>

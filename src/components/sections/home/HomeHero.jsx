@@ -1,12 +1,18 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Container from '../../ui/Container'
 import Button from '../../ui/Button'
 import SunriseMark from '../../brand/SunriseMark'
 import { gsap, SplitText, useGSAP, NO_MOTION_PREF, DESKTOP_MOTION, fontsReady } from '../../../lib/gsap'
 import { BRAND } from '../../../config/brand'
+import { isHydrated } from '../../../lib/hydration'
 
 export default function HomeHero() {
   const root = useRef(null)
+  // True on a first load of the prerendered page (server render + hydration). There the text is already on
+  // screen, so hiding and re-revealing it would flicker and delay the largest paint: the sun's rise is done
+  // by a CSS animation instead (see .hero-css-intro in index.css). On client-side navigation, and on the
+  // dev server, the full GSAP timeline plays. Locked per component instance so it stays consistent.
+  const [cssIntro] = useState(() => !isHydrated())
 
   useGSAP(
     () => {
@@ -14,7 +20,7 @@ export default function HomeHero() {
 
       // M1: hero intro. Initial states are set here (before paint), so without JS or with reduced
       // motion nothing is hidden and the section is simply complete.
-      mm.add(NO_MOTION_PREF, () => {
+      if (!cssIntro) mm.add(NO_MOTION_PREF, () => {
         const q = gsap.utils.selector(root)
         const [title] = q('[data-hero-title]')
         let cancelled = false
@@ -62,7 +68,7 @@ export default function HomeHero() {
   )
 
   return (
-    <section ref={root} className="relative flex min-h-[min(100svh,880px)] items-center overflow-hidden bg-cloud pb-16 pt-28 md:pt-32 lg:pb-28 lg:pt-40">
+    <section ref={root} className={`${cssIntro ? 'hero-css-intro ' : ''}relative flex min-h-[min(100svh,880px)] items-center overflow-hidden bg-cloud pb-16 pt-28 md:pt-32 lg:pb-28 lg:pt-40`}>
       <Container>
         <div className="relative z-10 max-w-[600px]">
           <ul data-hero-label className="type-label flex flex-wrap gap-y-1 text-slate">

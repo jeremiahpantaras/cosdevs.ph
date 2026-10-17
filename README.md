@@ -2,7 +2,7 @@
 
 > **Software built on hope.**
 
-The company website for Elpisoft, a custom software studio in Bacolod City, Philippines (formerly COS Devs).
+The company website for Elpisoft, a custom software studio in Bacolod City, Philippines.
 Built with React 19, Vite 7 and Tailwind CSS v4.
 
 ## Stack
@@ -20,7 +20,8 @@ Built with React 19, Vite 7 and Tailwind CSS v4.
 npm install
 npm run dev      # development server
 npm run lint     # ESLint
-npm run build    # production build
+npm run build    # production build (client bundle, server bundle, then prerenders every page)
+npm run check:seo  # validate the built pages, sitemap and metadata (run after a build)
 npm run preview  # serve the production build
 ```
 
@@ -36,7 +37,11 @@ src/
   components/layout/     header, footer, skip link, scroll handling, per-route metadata
   components/ui/         buttons, sections, project cards, contact form, reveal helpers
   components/sections/   homepage sections and the closing call to action
+  seo/                   route metadata (single source), head tags, JSON-LD, sitemap
+  entry-server.js        server render used by the build-time prerender
   pages/                 one file per route
+scripts/                 prerender.mjs (per-page HTML + sitemap), check-seo.mjs
+docs/seo.md              how SEO works here, and the owner checklist
 public/brand/            master logo SVGs used by the site
 ```
 

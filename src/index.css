@@ -95,3 +95,25 @@
     text-wrap: pretty;
   }
 }
+
+/*
+ * Hero intro for a first load of the prerendered page. The sun starts below the horizon clip and rises; the
+ * bowl fades in. Plain CSS so it runs the moment the page paints, without waiting for JavaScript, and is
+ * skipped entirely for reduced motion. (Client-side navigation uses the GSAP timeline in HomeHero instead.)
+ */
+@keyframes sun-rise {
+  from { transform: translateY(46px); }
+  to { transform: translateY(0); }
+}
+@keyframes bowl-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-css-intro [data-sun] {
+    animation: sun-rise 1.4s cubic-bezier(0.33, 1, 0.68, 1) 0.2s both;
+  }
+  .hero-css-intro [data-bowl] {
+    animation: bowl-in 0.8s ease-out 0.6s both;
+  }
+}

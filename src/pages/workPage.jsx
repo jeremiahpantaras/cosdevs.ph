@@ -1,4 +1,3 @@
-import PageMeta from '../components/layout/PageMeta'
 import PageIntro from '../components/ui/PageIntro'
 import Section from '../components/ui/Section'
 import Reveal from '../components/ui/Reveal'
@@ -10,11 +9,6 @@ import { FEATURED_PROJECTS, PROJECTS } from '../data/projects'
 export default function WorkPage() {
   return (
     <>
-      <PageMeta
-        title="Work"
-        path="/work"
-        description="Selected projects from Elpisoft: web applications, mobile apps and automation tools, from receipt generation to emergency response."
-      />
       <PageIntro eyebrow="02 — Work" title="Things we have built">
         A selection of products we have designed, built and shipped, from financial tools to public-safety systems.
       </PageIntro>

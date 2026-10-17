@@ -1,30 +1,39 @@
 import { useEffect } from 'react'
-import { BRAND } from '../../config/brand'
+import { useLocation } from 'react-router-dom'
+import { getRouteMeta, absoluteUrl } from '../../seo/routeMeta'
 
-const setMeta = (selector, attr, value) => {
+const setAttr = (selector, attr, value) => {
   const el = document.head.querySelector(selector)
   if (el) el.setAttribute(attr, value)
 }
 
 /**
- * Per-route title, description, canonical and social tags.
- * Updates the tags already present in index.html (React's <title> hoisting would add a duplicate).
- * `title` is the page name; Home passes `home` to use the full brand title.
+ * Keeps <head> in sync during client-side navigation, from the same route registry the build uses to
+ * prerender each page. On a first load the prerendered tags already match, so nothing visibly changes.
+ * Rendered once in the app shell; individual pages do not set their own metadata.
  */
-export default function PageMeta({ title, description, path = '/', home = false }) {
+export default function PageMeta() {
+  const { pathname } = useLocation()
+
   useEffect(() => {
-    const fullTitle = home ? `${BRAND.name} — ${BRAND.tagline}` : `${title} — ${BRAND.name}`
-    const url = `${BRAND.siteUrl}${path === '/' ? '/' : path}`
-    document.title = fullTitle
-    setMeta('meta[name="title"]', 'content', fullTitle)
-    setMeta('meta[name="description"]', 'content', description)
-    setMeta('meta[property="og:title"]', 'content', fullTitle)
-    setMeta('meta[property="og:description"]', 'content', description)
-    setMeta('meta[property="og:url"]', 'content', url)
-    setMeta('meta[name="twitter:title"]', 'content', fullTitle)
-    setMeta('meta[name="twitter:description"]', 'content', description)
-    setMeta('link[rel="canonical"]', 'href', url)
-  }, [title, description, path, home])
+    const route = getRouteMeta(pathname)
+    const url = absoluteUrl(route.path === '/404' ? '/' : route.path)
+    document.title = route.title
+    setAttr('meta[name="title"]', 'content', route.title)
+    setAttr('meta[name="description"]', 'content', route.description)
+    setAttr('meta[name="robots"]', 'content', route.indexable ? 'index, follow' : 'noindex')
+    setAttr('meta[property="og:title"]', 'content', route.title)
+    setAttr('meta[property="og:description"]', 'content', route.description)
+    setAttr('meta[property="og:url"]', 'content', url)
+    setAttr('meta[name="twitter:title"]', 'content', route.title)
+    setAttr('meta[name="twitter:description"]', 'content', route.description)
+    const canonical = document.head.querySelector('link[rel="canonical"]')
+    if (route.indexable) {
+      if (canonical) canonical.setAttribute('href', url)
+    } else {
+      canonical?.removeAttribute('href')
+    }
+  }, [pathname])
 
   return null
 }

@@ -25,3 +25,4 @@ dist-ssr
 
 # Brand kit source files (internal & partner use). Needed assets are copied into public/brand and public/ root.
 public/Elpisoft Brand Guidelines/
+dist-server

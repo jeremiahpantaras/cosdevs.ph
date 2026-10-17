@@ -4,6 +4,7 @@ import { AlertCircle, CheckCircle, Send } from 'lucide-react'
 import Button from './Button'
 import { BRAND } from '../../config/brand'
 import { DUR } from '../../lib/motion'
+import { trackEvent } from '../../lib/analytics'
 
 const FIELD =
   'mt-2 block w-full rounded-control border border-slate/70 bg-white px-3.5 py-3 text-base text-navy placeholder:text-slate/70 focus:border-horizon'
@@ -30,6 +31,7 @@ export default function ContactForm() {
       if (response.ok) {
         form.reset()
         setStatus('success')
+        trackEvent('contact_form_submit')
       } else {
         setStatus('error')
       }

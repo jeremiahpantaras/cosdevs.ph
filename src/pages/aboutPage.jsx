@@ -1,4 +1,3 @@
-import PageMeta from '../components/layout/PageMeta'
 import PageIntro from '../components/ui/PageIntro'
 import Section from '../components/ui/Section'
 import Eyebrow from '../components/ui/Eyebrow'
@@ -18,15 +17,10 @@ const NAME_PARTS = [
 export default function AboutPage() {
   return (
     <>
-      <PageMeta
-        title="About"
-        path="/about"
-        description="Elpisoft builds reliable, human-centred software in Bacolod City, Philippines. Meet the team, and read how we work and what we believe."
-      />
       <PageIntro eyebrow="03 — About" title={`About ${BRAND.name}`}>
         <p>
           {BRAND.name} is a custom software studio in Bacolod City, Negros Island. We build reliable, human-centred software
-          that helps people and businesses move forward with confidence. We were previously known as {BRAND.formerName}.
+          that helps people and businesses move forward with confidence.
         </p>
       </PageIntro>
 

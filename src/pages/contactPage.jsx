@@ -1,20 +1,15 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
-import PageMeta from '../components/layout/PageMeta'
 import PageIntro from '../components/ui/PageIntro'
 import Section from '../components/ui/Section'
 import Reveal from '../components/ui/Reveal'
 import ContactForm from '../components/ui/ContactForm'
+import MessagingLinks from '../components/ui/MessagingLinks'
 import { BRAND } from '../config/brand'
 import { PROCESS } from '../data/process'
 
 export default function ContactPage() {
   return (
     <>
-      <PageMeta
-        title="Start a project"
-        path="/contact"
-        description="Tell Elpisoft what you want to build. Send a message, email or call, and we will reply with honest next steps."
-      />
       <PageIntro eyebrow="04 — Contact" title="Start a project">
         Tell us what you are trying to build. We will reply with honest next steps and a realistic view of timing.
       </PageIntro>
@@ -44,7 +39,13 @@ export default function ContactPage() {
               </ul>
             </Reveal>
 
-            <Reveal delay={0.06}>
+            <Reveal delay={0.04}>
+              <h2 className="type-h3">Message us</h2>
+              <p className="mt-2 text-slate">Chat on the same number: {BRAND.contact.phone}</p>
+              <MessagingLinks className="mt-4" />
+            </Reveal>
+
+            <Reveal delay={0.08}>
               <h2 className="type-h3">What happens next</h2>
               <ol className="mt-5 space-y-4">
                 {PROCESS.map((step) => (

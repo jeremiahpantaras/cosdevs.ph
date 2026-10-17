@@ -1,4 +1,3 @@
-import PageMeta from '../components/layout/PageMeta'
 import PageIntro from '../components/ui/PageIntro'
 import Section from '../components/ui/Section'
 import Reveal from '../components/ui/Reveal'
@@ -9,11 +8,6 @@ import { SUPPORTING_CAPABILITIES } from '../data/services'
 export default function ServicesPage() {
   return (
     <>
-      <PageMeta
-        title="Services"
-        path="/services"
-        description="Custom software, web applications, mobile apps and business automation from Elpisoft, a software studio in Bacolod City, Philippines."
-      />
       <PageIntro eyebrow="01 — Services" title="What we build">
         Dependable software for teams that want to move forward with confidence. Most projects combine more than one of the services below.
       </PageIntro>

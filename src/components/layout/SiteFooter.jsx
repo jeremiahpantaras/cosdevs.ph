@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react'
 import Logo from '../brand/Logo'
 import Container from '../ui/Container'
+import MessagingLinks from '../ui/MessagingLinks'
 import { BRAND } from '../../config/brand'
 import { NAV_LINKS } from './nav'
+import { SERVICES, servicePath } from '../../data/services'
 
 const SOCIALS = [
   { label: 'Facebook', href: BRAND.socials.facebook, icon: Facebook },
@@ -22,14 +24,19 @@ export default function SiteFooter() {
             <Logo variant="reversed" height={36} />
           </Link>
           <p className="mt-5 max-w-xs text-white/75">{BRAND.tagline}</p>
-          <p className="mt-2 max-w-xs text-sm text-white/60">Formerly {BRAND.formerName}.</p>
         </div>
 
         <nav aria-label="Footer">
           <h2 className="type-label text-amber">Explore</h2>
           <ul className="mt-4 space-y-1">
-            {[{ label: 'Home', to: '/' }, ...NAV_LINKS, { label: 'Contact', to: '/contact' }].map(({ label, to }) => (
+            {[{ label: 'Home', to: '/' }, ...NAV_LINKS, { label: 'Contact', to: '/contact' }, { label: 'Privacy', to: '/privacy' }].map(({ label, to }) => (
               <li key={to}><Link to={to} className={linkCls}>{label}</Link></li>
+            ))}
+          </ul>
+          <h2 className="type-label mt-8 text-amber">Services</h2>
+          <ul className="mt-4 space-y-1">
+            {SERVICES.map((service) => (
+              <li key={service.slug}><Link to={servicePath(service)} className={linkCls}>{service.title}</Link></li>
             ))}
           </ul>
         </nav>
@@ -39,6 +46,7 @@ export default function SiteFooter() {
           <ul className="mt-4 space-y-1">
             <li><a href={`mailto:${BRAND.contact.email}`} className={`${linkCls} break-all`}>{BRAND.contact.email}</a></li>
             <li><a href={`tel:${BRAND.contact.phoneRaw}`} className={linkCls}>{BRAND.contact.phone}</a></li>
+            <li><MessagingLinks variant="inline" /></li>
             <li className="pt-1 text-white/75">{BRAND.contact.addressLine1}<br />{BRAND.contact.addressLine2}</li>
           </ul>
         </div>
@@ -67,7 +75,7 @@ export default function SiteFooter() {
         </div>
       </Container>
       <Container>
-        <p className="border-t border-white/10 py-6 text-sm text-white/60">&copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.</p>
+        <p className="border-t border-white/10 py-6 text-sm text-white/60" suppressHydrationWarning>&copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.</p>
       </Container>
     </footer>
   )
